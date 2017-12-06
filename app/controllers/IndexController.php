@@ -20,8 +20,11 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        $this->view->version = System::getInstance()->version();
-        return $this->view->render('index', 'index');
+        $version = System::getInstance()->version();
+        return static::success([
+            'version' => $version,
+            'message' => 'You\'re now flying with Phalcon. Great things are about to happen!'
+        ]);
     }
 
     /**
