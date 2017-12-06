@@ -23,4 +23,15 @@ class IndexController extends Controller
         $this->view->version = System::getInstance()->version();
         return $this->view->render('index', 'index');
     }
+
+    /**
+     * @desc   返回健康状态
+     * @author limx
+     */
+    public function healthAction()
+    {
+        return $this->response->setJsonContent([
+            'status' => 'UP'
+        ]);
+    }
 }
