@@ -2,17 +2,34 @@
 
 ## [Unreleased]
 ### Checked
-- [ ] php单元测试
+- [x] php单元测试
 
 ### Added
 
 ### Changed
+* 修改单元测试，增加命名空间Tests
+
+### Fixed
+
+### Deleted
+
+## [2.1.5]
+### Checked
+- [x] php单元测试
+
+### Added
+* 增加数据库端口配置
+
+### Changed
+* 修改mkdir为File::makeDirectory方法
 
 ### Fixed
 * 修改InstanceBase getInstance不能返回一个实例的BUG
+* 修改当并发新建日志目录时，如果已存在目录，则不抛出错误
 
 ### Deleted
 * 删除Logic目录
+* 删除不符合设计的代码
 
 ## [2.0.7]
 ### Checked

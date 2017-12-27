@@ -20,16 +20,20 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        $version = System::getInstance()->version();
-        return static::success([
-            'version' => $version,
-            'message' => 'You\'re now flying with Phalcon. Great things are about to happen!'
-        ]);
+        if ($this->request->isPost()) {
+            return $this->response->setJsonContent([
+                'version' => System::getInstance()->version(),
+                'message' => "You're now flying with Phalcon. Great things are about to happen!",
+            ]);
+        }
+        $this->view->version = System::getInstance()->version();
+        return $this->view->render('index', 'index');
     }
 
     /**
      * @desc   返回健康状态
      * @author limx
+     * @return \Phalcon\Http\Response|\Phalcon\Http\ResponseInterface
      */
     public function healthAction()
     {
